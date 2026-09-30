@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f8eee8">
+<meta name="description" content="Undangan pernikahan Deri & Ririn">
+<title>Deri & Ririn — Undangan Pernikahan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Great+Vibes&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/css/style.css?v=20260930-v2">
+</head>
+<body class="locked">
+<div id="gate" aria-label="Sampul undangan">
+  <div class="gate-panel gate-left"></div>
+  <div class="gate-panel gate-right"></div>
+  <img class="gate-stamp" src="./assets/design/Elemen/Cover/Stample in Cover.png" alt="">
+  <img class="gate-dove" src="./assets/design/Elemen/Cover/Merpati Icon in Opening.png" alt="">
+  <div class="gate-copy"><span>The Wedding Of</span><strong>Deri & Ririn</strong><small>Klik untuk membuka undangan</small></div>
+  <button id="openBtn" class="gate-open" type="button">Buka Undangan <span>→</span></button>
+</div>
+
+<div class="progress" id="progress"></div>
+<div class="shell">
+  <main id="content">
+    <section class="design-page page-1" id="home" data-design="Halaman 1.png">
+      <div class="page-overlay hero-overlay">
+        <div class="hit guest-hit" id="guestName">Tamu Undangan</div>
+        <button class="design-button hero-open" id="calendarBtn" type="button">Simpan ke Kalender</button>
+      </div>
+    </section>
+
+    <section class="design-page page-2" id="couple" data-design="Halaman 2.png">
+      <div class="page-overlay couple-overlay">
+        <div class="live-text" id="groomFull">Deri Alan Wari</div>
+        <div class="live-text" id="brideFull">Ririn Riyandhanti</div>
+        <div class="sr-only" id="groomParents">Putra dari Bapak Wawan Kosawara & Ibu Nia Kurnia</div>
+        <div class="sr-only" id="brideParents">Putri dari Bapak Didin Maulana & Ibu Juju Hariyanti</div>
+      </div>
+    </section>
+
+    <section class="design-page page-3 quote-page" id="quote" data-design="Halaman 3.png">
+      <div class="page-overlay"><div class="sr-only" id="quoteText">Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan dari jenismu sendiri supaya kamu cenderung dan merasa tenteram kepadanya.</div></div>
+    </section>
+
+    <section class="design-page page-4" id="countdownSection" data-design="Halaman 4.png">
+      <div class="page-overlay"><div class="countdown-fallback" aria-live="polite"><b id="dd">00</b><b id="hh">00</b><b id="mm">00</b><b id="ss">00</b></div></div>
+    </section>
+
+    <section class="design-page page-5" id="event" data-design="Halaman 5.png">
+      <div class="page-overlay event-overlay">
+        <div class="event-hit akad-hit"><a id="akadMapBtn" href="https://www.google.com/maps/search/?api=1&query=Jl.+Terusan+Pasirkoja+Kota+Bandung+Jawa+Barat+40221" target="_blank" rel="noopener">Buka Maps</a></div>
+        <div class="event-hit resepsi-hit"><a id="resepsiMapBtn" href="https://www.google.com/maps/search/?api=1&query=Jl.+Kampung+Bbk+Sawah+Kota+Bandung+Jawa+Barat+40221" target="_blank" rel="noopener">Buka Maps</a></div>
+        <div id="eventList" class="sr-only"></div>
+      </div>
+    </section>
+
+    <section class="design-page page-6" id="rsvp" data-design="Halaman 6.png">
+      <div class="page-overlay rsvp-overlay">
+        <form id="rsvpForm" class="transparent-form">
+          <input id="rsvpName" required maxlength="70" aria-label="Nama lengkap">
+          <div class="choice-row" id="attendanceChoice"><button type="button" class="choice active" data-value="Hadir">Hadir</button><button type="button" class="choice" data-value="Ragu-ragu">Ragu-ragu</button><button type="button" class="choice" data-value="Tidak Hadir">Tidak Hadir</button></div>
+          <input id="rsvpGuests" type="number" min="1" max="5" value="1" aria-label="Jumlah tamu">
+          <textarea id="rsvpNote" maxlength="250" aria-label="Catatan"></textarea>
+          <button class="submit-hit" type="submit" aria-label="Kirim konfirmasi">Kirim Konfirmasi</button>
+        </form>
+        <div id="rsvpSuccess" class="success-box hidden"><h4>Konfirmasi tersimpan</h4><button type="button" id="editRsvp">Ubah jawaban</button></div>
+      </div>
+    </section>
+
+    <section class="design-page page-7" id="wishes" data-design="Halaman 7.png">
+      <div class="page-overlay wishes-overlay">
+        <div id="wishList" class="wish-list-live"></div>
+        <form id="wishForm" class="transparent-form wish-form">
+          <input id="wishName" required maxlength="60" aria-label="Nama">
+          <textarea id="wishMsg" required maxlength="300" aria-label="Ucapan"></textarea>
+          <button class="wish-submit" type="submit" aria-label="Kirim ucapan">Kirim Ucapan</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="design-page page-8" id="gift" data-design="Halaman 8.png">
+      <div class="page-overlay gift-overlay">
+        <div id="giftGrid" class="sr-only"></div>
+      </div>
+    </section>
+
+    <section class="extra-section" id="gallery">
+      <div class="extra-inner"><p>Galeri</p><h2>Momen Deri & Ririn</h2><div class="gallery" id="galleryGrid">
+        <button class="gallery-item large" data-src="./foto/gallery-01.webp"><img src="./foto/gallery-01.webp" alt="Momen 01"></button>
+        <button class="gallery-item" data-src="./foto/gallery-02.webp"><img src="./foto/gallery-02.webp" alt="Momen 02"></button>
+        <button class="gallery-item" data-src="./foto/gallery-03.webp"><img src="./foto/gallery-03.webp" alt="Momen 03"></button>
+        <button class="gallery-item" data-src="./foto/gallery-04.webp"><img src="./foto/gallery-04.webp" alt="Momen 04"></button>
+        <button class="gallery-item" data-src="./foto/gallery-05.webp"><img src="./foto/gallery-05.webp" alt="Momen 05"></button>
+      </div></div>
+    </section>
+    <section class="extra-section" id="share"><div class="extra-inner"><p>Undangan Personal</p><h2>Bagikan</h2><input id="shareName" placeholder="Nama tamu"><button class="design-button" id="shareBtn">Bagikan Undangan</button><button class="design-button" id="copyLinkBtn">Salin Link</button></div></section>
+    <footer><div id="footerNames">Deri Alan Wari & Ririn Riyandhanti</div><p>Terima kasih atas doa dan restu Anda.</p><p>Invitation crafted by <b>Ikat Cinta</b></p></footer>
+  </main>
+</div>
+
+<nav class="bottom-nav" aria-label="Navigasi undangan">
+<a class="nav-item active" href="#home" data-target="home">Home</a><a class="nav-item" href="#couple" data-target="couple">Mempelai</a><a class="nav-item" href="#event" data-target="event">Acara</a><a class="nav-item" href="#rsvp" data-target="rsvp">RSVP</a><a class="nav-item" href="#gift" data-target="gift">Gift</a>
+</nav>
+<div id="lightbox"><div class="lightbox-inner"><button id="lightboxClose">×</button><img id="lightboxImg" alt="Galeri"></div></div><div id="toast"></div>
+<audio id="bgMusic" preload="auto" loop src="./music/wedding-nasyid.mp3"></audio>
+<script src="https://www.gstatic.com/firebasejs/12.19.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.19.0/firebase-database-compat.js"></script>
+<script src="./assets/js/firebase-config.js?v=20260930-v2"></script>
+<script src="./assets/js/app.js?v=20260930-v2"></script>
+</body></html>
