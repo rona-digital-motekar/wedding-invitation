@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f7eee7">
+<title>Admin RSVP — Deri & Ririn</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/css/admin.css?v=20261001-rsvp1">
+</head>
+<body>
+<main class="admin-shell">
+  <section class="admin-card login-card" id="loginView">
+    <p class="eyebrow">Deri &amp; Ririn</p>
+    <h1>Admin RSVP</h1>
+    <p class="muted">Masuk dengan akun Google untuk melihat dan mengunduh data konfirmasi tamu.</p>
+    <button class="google-login" id="googleLoginBtn" type="button">
+      <span class="google-mark" aria-hidden="true">G</span>
+      <span>Masuk dengan Google</span>
+    </button>
+    <p class="login-note">Akses dashboard tersedia sampai 4 November 2026.</p>
+    <p class="error hidden" id="loginError"></p>
+  </section>
+
+  <section class="dashboard hidden" id="dashboard">
+    <header class="admin-header">
+      <div>
+        <p class="eyebrow">Dashboard</p>
+        <h1>Data RSVP</h1>
+        <p class="muted" id="adminStatus">Memuat data...</p>
+      </div>
+      <div class="header-actions">
+        <button class="secondary" id="refreshBtn" type="button">Refresh</button>
+        <button class="secondary" id="logoutBtn" type="button">Keluar</button>
+      </div>
+    </header>
+
+    <section class="stats" aria-label="Ringkasan RSVP">
+      <article><span>Total RSVP</span><strong id="totalCount">0</strong></article>
+      <article><span>Hadir</span><strong id="attendCount">0</strong></article>
+      <article><span>Tidak Hadir</span><strong id="absentCount">0</strong></article>
+      <article><span>Total Tamu</span><strong id="guestCount">0</strong></article>
+    </section>
+
+    <section class="toolbar">
+      <input id="searchInput" type="search" placeholder="Cari nama tamu...">
+      <select id="filterSelect">
+        <option value="Semua">Semua</option>
+        <option value="Hadir">Hadir</option>
+        <option value="Ragu-ragu">Ragu-ragu</option>
+        <option value="Tidak Hadir">Tidak Hadir</option>
+      </select>
+      <button class="primary" id="csvBtn" type="button">Download CSV</button>
+      <button class="secondary" id="printBtn" type="button">Print</button>
+    </section>
+
+    <section class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Nama</th>
+            <th>Kehadiran</th>
+            <th>Jumlah Tamu</th>
+            <th>Catatan</th>
+            <th>Waktu</th>
+          </tr>
+        </thead>
+        <tbody id="rsvpTable"></tbody>
+      </table>
+      <div class="empty hidden" id="emptyState">Belum ada data RSVP yang masuk.</div>
+    </section>
+  </section>
+</main>
+
+<script src="https://www.gstatic.com/firebasejs/12.19.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.19.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.19.0/firebase-database-compat.js"></script>
+<script src="./assets/js/firebase-config.js?v=20261001-rsvp2"></script>
+<script src="./assets/js/admin.js?v=20261001-rsvp2"></script>
+</body>
+</html>
