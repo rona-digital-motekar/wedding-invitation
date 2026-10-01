@@ -1,0 +1,20 @@
+{
+  "rules": {
+    "wishes": {
+      ".read": true,
+      ".indexOn": ["time"],
+      "$wishId": {
+        ".write": "!data.exists() && newData.exists() && now < 1793811599000",
+        ".validate": "newData.hasChildren(['name','msg','time']) && newData.child('name').isString() && newData.child('name').val().length >= 1 && newData.child('name').val().length <= 60 && newData.child('msg').isString() && newData.child('msg').val().length >= 1 && newData.child('msg').val().length <= 300 && newData.child('time').isNumber()"
+      }
+    },
+    "rsvps": {
+      ".read": "auth != null && auth.provider == 'google' && now < 1793811599000",
+      ".indexOn": ["time"],
+      "$rsvpId": {
+        ".write": "(!data.exists() && newData.exists() && now < 1793811599000) || (data.exists() && newData.exists() && now < 1793811599000 && data.child('clientKey').isString() && newData.child('clientKey').val() == data.child('clientKey').val())",
+        ".validate": "newData.hasChildren(['name','attendance','guests','note','guest','clientKey','time']) && newData.child('name').isString() && newData.child('name').val().length >= 1 && newData.child('name').val().length <= 70 && newData.child('attendance').isString() && (newData.child('attendance').val() == 'Hadir' || newData.child('attendance').val() == 'Ragu-ragu' || newData.child('attendance').val() == 'Tidak Hadir') && newData.child('guests').isNumber() && newData.child('guests').val() >= 1 && newData.child('guests').val() <= 5 && newData.child('note').isString() && newData.child('note').val().length <= 250 && newData.child('guest').isString() && newData.child('guest').val().length <= 120 && newData.child('clientKey').isString() && newData.child('clientKey').val().length == 48 && newData.child('time').isNumber()"
+      }
+    }
+  }
+}
