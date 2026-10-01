@@ -1,0 +1,87 @@
+:root{--cream:#f4eee5;--ink:#20362d;--gold:#bd8b3f;--paper:#fffaf2;--line:rgba(111,77,34,.24);--shadow:0 16px 42px rgba(56,38,22,.12);--serif:"DM Serif Display",Georgia,serif;--script:"Great Vibes",cursive;--sans:Jost,system-ui,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:#17120e}
+body{margin:0;background:#17120e;color:var(--ink);font-family:var(--sans);overflow-x:hidden}
+body.locked{overflow:hidden}
+button,input,textarea{font:inherit}button{cursor:pointer}img{max-width:100%;display:block}
+
+/* COVER */
+#gate{position:fixed;inset:0;z-index:200;overflow:hidden;background:#f8ece9;isolation:isolate}
+.gate-paper{position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,#fff9f6 0,#f8e9e6 58%,#f1dfe0 100%)}
+.gate-leaf{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;z-index:2;transition:transform 1.25s cubic-bezier(.77,0,.18,1)}
+.gate-left,.gate-right{transform:translateX(0)}
+.gate-dove{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;z-index:5;pointer-events:none}
+.gate-stamp{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;z-index:6;pointer-events:none;transition:opacity .55s ease .18s}
+.gate-content{position:absolute;inset:0;z-index:7;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 24px 7vh}
+.eyebrow{font-size:10px;letter-spacing:2.2px;text-transform:uppercase}.gate-content .eyebrow{color:#9b5c70}
+.gate-names{font:clamp(62px,15vw,108px)/.82 var(--script);color:#9b5c70;margin:15px 0}.gate-to{font-size:10px;letter-spacing:1.4px;color:#7d646b;margin:0}.gate-guest{font:18px var(--serif);color:#4d3439;margin:7px 0 22px}
+.primary-btn{border:1px solid #9b5c70;background:#9b5c70;color:#fff;padding:12px 18px;border-radius:999px;text-decoration:none;font-size:11px;letter-spacing:.6px;cursor:pointer;box-shadow:0 10px 24px rgba(169,95,115,.16)}
+.gate-open{position:relative;z-index:9}.gate-open:hover{transform:translateY(-1px)}
+#gate.opening .gate-left{transform:translateX(-100%)}#gate.opening .gate-right{transform:translateX(100%)}#gate.opening .gate-stamp{opacity:0}
+#gate.opening .gate-dove{animation:doveAcross 1.05s ease forwards}
+@keyframes doveAcross{0%{transform:translateX(-10vw);opacity:1}70%{transform:translateX(58vw);opacity:1}100%{transform:translateX(110vw);opacity:0}}
+
+/* DESIGN PAGES: the supplied PNG is a background layer, never a normal-flow image. */
+#content{width:100%;background:#f4eee5}
+.design-page{position:relative;width:100%;overflow:hidden;line-height:0;isolation:isolate;aspect-ratio:1414/2000}
+.page-quote{aspect-ratio:2000/1500}
+.design-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;user-select:none;-webkit-user-drag:none;z-index:-1}
+.page-quote,.page-couple,.page-event{opacity:1;transform:none}
+
+/* EVENT BUTTONS sit inside the two white event cards. */
+.event-overlay{position:absolute;inset:0;pointer-events:none;z-index:2}
+.event-slot{position:absolute;left:50%;transform:translateX(-50%);display:flex;justify-content:center;gap:10px;width:68%;pointer-events:auto}
+.event-slot.slot-akad{top:52%}.event-slot.slot-resepsi{top:88%}
+.event-action{display:inline-flex;align-items:center;justify-content:center;min-width:138px;padding:10px 15px;border:1px solid rgba(112,76,26,.42);border-radius:999px;background:rgba(255,251,243,.96);color:#7e5922;text-decoration:none;font-size:10px;font-weight:600;letter-spacing:.4px;box-shadow:0 8px 18px rgba(76,47,18,.12);backdrop-filter:blur(3px)}
+.event-action:hover{background:#fff;color:#5f4218;transform:translateY(-1px)}
+
+/* COUNTDOWN */
+.countdown-section{background:#f3eadc;padding:38px 18px 42px;border-top:1px solid rgba(111,77,34,.12);border-bottom:1px solid rgba(111,77,34,.12)}
+.countdown-wrap{max-width:600px;margin:auto;text-align:center}.countdown-kicker{margin:0 0 16px;color:#9a7440;font-size:10px;letter-spacing:2.4px;text-transform:uppercase}
+.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.cd{background:rgba(255,252,246,.76);border:1px solid rgba(142,101,45,.2);padding:14px 5px;border-radius:15px;box-shadow:0 8px 24px rgba(79,54,23,.06)}
+.cd b{display:block;font:31px var(--serif);color:#9b5c70}.cd span{font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:#8c7049}
+
+/* GALLERY */
+.gallery-section{background:#f5eee4;padding:36px 18px 46px}.gallery{width:min(720px,100%);margin:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.gallery-item{position:relative;border:0;padding:0;margin:0;background:transparent;overflow:hidden;aspect-ratio:1/1.08;cursor:pointer;border-radius:10px}.gallery-item.large{grid-row:span 2;aspect-ratio:auto;min-height:100%}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}.gallery-item:hover img{transform:scale(1.025)}
+
+/* RSVP is locked to the blank rounded panel in Halaman 5. */
+.rsvp-overlay{position:absolute;left:50%;top:37.5%;transform:translateX(-50%);width:76%;height:50%;display:flex;align-items:center;justify-content:center;z-index:2}
+.form-card{width:100%;height:100%;max-width:620px;background:rgba(255,249,238,.88);border:1px solid rgba(147,104,47,.18);border-radius:28px;padding:18px;box-shadow:0 10px 28px rgba(56,38,22,.10);backdrop-filter:blur(2px);overflow:auto}
+#rsvpForm{display:flex;flex-direction:column;min-height:100%;justify-content:center}.field{margin-bottom:9px}.field label{display:block;font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:#866b45;margin-bottom:5px}
+.field input,.field textarea{width:100%;border:1px solid rgba(128,93,48,.22);background:rgba(255,255,255,.82);border-radius:12px;padding:9px 11px;color:#2c3b34;outline:none;font-size:11px}.field textarea{min-height:54px;resize:vertical}
+.field input:focus,.field textarea:focus{border-color:#b88b4e;box-shadow:0 0 0 3px rgba(184,139,78,.13)}.choice-row{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.choice{padding:8px 3px;border:1px solid rgba(128,93,48,.22);border-radius:11px;background:rgba(255,255,255,.76);color:#806848;font-size:9px;cursor:pointer}.choice.active{background:#9b5c70;border-color:#9b5c70;color:#fff}
+.form-submit{width:100%;margin-top:3px;background:#9b5c70;border-color:#9b5c70;box-shadow:none}.success-box{width:100%;max-width:620px;text-align:center;background:rgba(255,250,241,.93);border:1px solid rgba(147,104,47,.2);border-radius:24px;padding:28px;box-shadow:var(--shadow)}
+.success-box h4{font:27px var(--serif);margin:0 0 8px;color:var(--ink)}.success-box p{font-size:12px;line-height:1.6;color:#675742}.small-btn{display:inline-flex;justify-content:center;align-items:center;padding:9px 13px;border:1px solid rgba(128,93,48,.28);border-radius:999px;background:#fffaf2;color:#765625;font-size:10px;letter-spacing:.5px;cursor:pointer}.hidden{display:none!important}
+
+/* WISHES fit inside the white panel on Halaman 6. */
+.wishes-overlay{position:absolute;left:50%;top:41%;transform:translateX(-50%);width:76%;height:47%;display:flex;flex-direction:column;gap:9px;z-index:2}
+.wishes-list{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:4px 6px;display:grid;align-content:start;gap:7px;scrollbar-width:thin;scrollbar-color:rgba(128,93,48,.4) transparent}
+.wishes-list::-webkit-scrollbar{width:5px}.wishes-list::-webkit-scrollbar-thumb{background:rgba(128,93,48,.4);border-radius:99px}
+.wish{background:rgba(255,255,255,.9);border:1px solid rgba(128,93,48,.16);border-radius:13px;padding:9px 11px;box-shadow:0 5px 16px rgba(72,51,27,.06)}
+.wish-top{display:flex;justify-content:space-between;gap:8px;align-items:baseline}.wish-name{font:15px var(--serif);color:#9b5c70}.wish-time{font-size:8px;color:#9a8462;white-space:nowrap}.wish-msg{font-size:10px;line-height:1.45;margin:4px 0 0;color:#5e5140;overflow-wrap:anywhere}
+.wish-form-card{flex:0 0 auto;background:rgba(255,252,247,.93);border:1px solid rgba(128,93,48,.15);border-radius:14px;padding:9px 10px;box-shadow:0 6px 18px rgba(72,51,27,.06)}
+.wish-fields{display:grid;grid-template-columns:1fr 2fr;gap:7px}.wish-fields input,.wish-fields textarea{width:100%;border:1px solid rgba(128,93,48,.2);background:rgba(255,255,255,.84);border-radius:9px;padding:8px 9px;color:#2c3b34;outline:none;font-size:9px}.wish-fields textarea{min-height:38px;resize:none}.wish-form-card .form-submit{padding:8px 13px;margin-top:7px}
+
+/* DIGITAL GIFT */
+.gift-overlay{position:absolute;left:50%;top:58%;transform:translateX(-50%);width:70%;display:flex;justify-content:center;z-index:2}.gift{width:100%;max-width:520px;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 18px;border:1px solid rgba(255,255,255,.55);border-radius:18px;background:rgba(36,27,21,.48);color:#fff;backdrop-filter:blur(5px);box-shadow:0 12px 28px rgba(0,0,0,.16)}
+.gift-bank{font:27px var(--serif);margin:0;color:#f5d49c}.gift-num{margin:5px 0 0;font-size:11px;letter-spacing:.3px;color:#fff3dc}.copy{border:1px solid rgba(255,255,255,.55);background:rgba(255,255,255,.12);color:#fff;padding:9px 13px;border-radius:999px;font-size:10px;cursor:pointer}.copy:hover{background:rgba(255,255,255,.2)}
+
+/* FOOTER */
+footer{width:100%;line-height:0;background:#221913;overflow:hidden}.footer-bg{width:100%;height:auto}
+
+/* LIGHTBOX / TOAST */
+#lightbox{position:fixed;inset:0;z-index:300;background:rgba(25,18,13,.92);display:none;place-items:center;padding:20px}.lightbox-inner{max-width:min(95vw,900px);max-height:90vh;position:relative}.lightbox-inner img{max-height:86vh;width:auto;max-width:100%;border-radius:8px}.icon-btn{border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.1);color:#fff;border-radius:50%;width:38px;height:38px;cursor:pointer}.lightbox-close{position:absolute;right:-4px;top:-48px}
+#toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);z-index:500;background:#4b3925;color:#fff;padding:10px 14px;border-radius:999px;font-size:11px;opacity:0;pointer-events:none;transition:.25s;box-shadow:0 12px 30px rgba(0,0,0,.18)}#toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media(max-width:700px){
+  .event-slot{width:72%;gap:6px}.event-action{min-width:0;flex:1;padding:8px 6px;font-size:8px}
+  .rsvp-overlay{top:38%;width:78%;height:49%}.form-card{padding:12px;border-radius:22px}.field{margin-bottom:7px}.field input,.field textarea{padding:7px 9px;font-size:9px}.field textarea{min-height:46px}.choice{font-size:7px;padding:7px 2px}
+  .wishes-overlay{top:41%;width:78%;height:47%}.wish-name{font-size:13px}.wish-msg{font-size:8px}.wish-fields{grid-template-columns:1fr 1.7fr}.wish-fields input,.wish-fields textarea{font-size:8px;padding:7px}.wish-fields textarea{min-height:34px}
+  .gift-overlay{top:59%;width:74%}.gift{padding:12px;border-radius:14px}.gift-bank{font-size:21px}.gift-num{font-size:9px}.copy{padding:8px 10px;font-size:9px}
+  .countdown-section{padding:28px 14px 32px}.cd{padding:11px 3px}.cd b{font-size:25px}.cd span{font-size:7px}
+}
+@media(max-width:390px){.gate-names{font-size:68px}.event-slot{width:76%;gap:4px}.event-action{font-size:7px;padding:7px 4px}.rsvp-overlay{width:81%;height:49%;top:38%}.form-card{padding:10px}.wishes-overlay{width:81%;top:41%;height:47%}.gift-overlay{width:78%}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
